@@ -3,8 +3,8 @@ name: firecrawl
 x-common-service: &common-service
   # NOTE: If you don't want to build the service locally,
   # uncomment the build: statement and comment out the image: statement
-  # image: ghcr.io/firecrawl/firecrawl
-  build: apps/api
+  image: ghcr.io/firecrawl/firecrawl
+  #build: apps/api
 
   ulimits:
     nofile:
@@ -49,10 +49,10 @@ services:
   playwright-service:
     # NOTE: If you don't want to build the service locally,
     # uncomment the build: statement and comment out the image: statement
-    # image: ghcr.io/firecrawl/playwright-service:latest
-    build: apps/playwright-service-ts
+    image: ghcr.io/firecrawl/playwright-service:latest
+    # build: apps/playwright-service-ts
     environment:
-      PORT: 3000
+      PORT: 3010
       PROXY_SERVER: ${PROXY_SERVER}
       PROXY_USERNAME: ${PROXY_USERNAME}
       PROXY_PASSWORD: ${PROXY_PASSWORD}
